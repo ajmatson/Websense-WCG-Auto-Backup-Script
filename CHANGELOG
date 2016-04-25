@@ -1,0 +1,4 @@
+Changelog:
+
+0.9  - Initial release canidate version.
+0.91 - Fixed an issue with FTP not uploading in binary mode.
