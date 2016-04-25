@@ -1,5 +1,5 @@
-# Websense WCG Auto Backup Script
-This is a script that was designed to run on Websnse appliances to create automatic backups of the WCG settings "WCG Snapshot" and FTP them to an FTP Server. Currently the script creates a tar.gz file of the backup to upload, in the future it will be changed to create the same directory structure that the proxy does for easier remote restores.
+# Websense/Forcepoint WCG Auto Backup Script
+This is a script that was designed to run on Websense/Forcepoint appliances to create automatic backups of the WCG settings "WCG Snapshot" and FTP them to an FTP Server. Currently the script creates a tar.gz file of the backup to upload, in the future it will be changed to create the same directory structure that the proxy does for easier remote restores.
 
 Recently there was a custom log added which can be viewed in the WCG UI. The log can be accessed via Configure > Logs > System and then select "snapshot_script.log" from the dropdown box. An example of the log:
 
@@ -16,3 +16,6 @@ This script is provided without any warranty or support. Any issues feel free to
 - Move the configuration values to a .ini file for easy setup
 - Create an installer
 - Add SCP support with SSH keys for better security
+
+
+*Notes: This script was tested working and developed on a Websense/Forcepoint V1000G3 running version 8.0.1
