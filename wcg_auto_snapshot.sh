@@ -2,7 +2,7 @@
 #=========================================================================================
 #title               :wcg_auto_snapshot.sh
 #description         :This script is called by a cron job to take snapshot and FTP them.
-#author              :Alan Matson (alan@echotek.us)
+#author              :Alan Matson "alan (at) echotek (dot) us"
 #date                :2016-04-20
 #version             :0.91    
 #notes               :script is called via crontab "00 00 * * * bash /root/wcg_auto_snapshot.sh"
