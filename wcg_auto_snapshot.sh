@@ -61,7 +61,8 @@ EOF
 ftpsuccess="226 Transfer complete"
 if fgrep "$ftpsuccess" $ftplog ;then
    logdate=`date +%Y-%m-%d:%H:%M:%S`
-   echo "$logdate - Backup $fhostname.tar.gz was created and transfered to the BlueOx FTP Server!" >> $logfile
+   md5val=`md5sum /tmp/$fhostname.tar.gz | awk '{ print $1 }'`
+   echo "$logdate - Backup $fhostname.tar.gz was created and transfered to the FTP Server! MD5 of file is: $md5val" >> $logfile
    rm -rf /opt/WCG/config/snapshots/$fhostname
    rm -rf /tmp/$fhostname.tar.gz
    rm -rf /tmp/ftptmplog
