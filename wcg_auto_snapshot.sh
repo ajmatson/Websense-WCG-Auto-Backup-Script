@@ -49,6 +49,7 @@ tar -czvf /tmp/$fhostname.tar.gz -C /opt/WCG/config/snapshots/$fhostname .
 ftplog="/tmp/ftptmplog"
 ftp -inv $ftpserverip <<EOF > $ftplog 
 user $username $password
+bin
 lcd /tmp/
 cd $remotedir
 put $fhostname.tar.gz
