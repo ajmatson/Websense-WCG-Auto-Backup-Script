@@ -12,3 +12,7 @@ This script is provided without any warranty or support. Any issues feel free to
 
 ###Planned Changes:
 - Change from tar.gz to exact directory structure WCG uses for easy remote restores.
+- Re-write in Python for more flexibility
+- Move the configuration values to a .ini file for easy setup
+- Create an installer
+- Add SCP support with SSH keys for better security
