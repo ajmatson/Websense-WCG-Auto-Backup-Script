@@ -8,7 +8,7 @@
 #notes               :script is called via crontab "00 00 * * * bash /root/wcg_auto_snapshot.sh"
 #websense_version    :8.0.1 (Running CentOS 6.3 Kernel 3.6.3)
 #license             :GPLv3
-#changelog           :Added "bin" to FTP commands to force binary
+#changelog           :https://github.com/ajmatson/Websense-WCG-Auto-Backup-Script/blob/master/CHANGELOG
 #=========================================================================================
 
 #Change the values for your FTP Server and local directory
