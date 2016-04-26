@@ -9,7 +9,7 @@ This script is provided without any warranty or support. Any issues feel free to
 
 
 ###Installation:
-To install copy download and move the config.ini and wcg_auto_snapshot.py files to a directory of your choice. Then create a cron job with the following to run every Sunday night at midnight:
+To install copy download and move the config.ini and wcg_auto_snapshot.py files to a directory of your choice. Modify the config.ini with your values and then create a cron job with the following to run every Sunday night at midnight:
 
 ```00 00 * * * python /your/directory/wcg_auto_snapshot.py```
 
