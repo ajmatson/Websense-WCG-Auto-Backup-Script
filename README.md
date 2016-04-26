@@ -17,9 +17,10 @@ To install copy download and move the config.ini and wcg_auto_snapshot.py files 
 
 ###Planned Changes:
 - Change from tar.gz to exact directory structure WCG uses for easy remote restores.
-- Move the configuration values to a .ini file for easy setup
-- Create an installer
-- Add SCP support with SSH keys for better security
+- (COMPLEATED) Move the configuration values to a .ini file for easy setup.
+- (COMPLEATED) Migrate from bash to Python for the script.
+- Create an installer.
+- Add SCP support with SSH keys for better security.
 
 
 *Notes: This script was tested working and developed on a Websense/Forcepoint V1000G3 running version 8.0.1
