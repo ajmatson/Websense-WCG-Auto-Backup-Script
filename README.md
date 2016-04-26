@@ -17,8 +17,8 @@ To install copy download and move the config.ini and wcg_auto_snapshot.py files 
 
 ###Planned Changes:
 - Change from tar.gz to exact directory structure WCG uses for easy remote restores.
-- (COMPLEATED) Move the configuration values to a .ini file for easy setup.
-- (COMPLEATED) Migrate from bash to Python for the script.
+- (COMPLETED) Move the configuration values to a .ini file for easy setup.
+- (COMPLETED) Migrate from bash to Python for the script.
 - Create an installer.
 - Add SCP support with SSH keys for better security.
 
