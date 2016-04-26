@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+__author__ = "Alan Matson"
+__copyright__ = "Copyright 2016, EchoTEK Solutions"
+__license__ = "GPLv3"
+__version__ = "0.93"
+__maintainer__ = "Alan Matson"
+__email__ = "alan (at) echotek (dot) us"
+__status__ = "Development"
 
 import socket, os, subprocess, tarfile, hashlib
 from ftplib import FTP
