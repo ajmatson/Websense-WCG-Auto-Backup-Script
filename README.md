@@ -7,6 +7,7 @@ Recently there was a custom log added which can be viewed in the WCG UI. The log
 
 
 To install copy download and move the config.ini and wcg_auto_snapshot.py files to a directory of your choice. Then create a cron job with the following to run every Sunday night at midnight:
+
 ```00 00 * * * python /your/directory/wcg_auto_snapshot.py```
 
 
