@@ -6,6 +6,8 @@ Recently there was a custom log added which can be viewed in the WCG UI. The log
 ``` 2016-04-25:07:41:29 - Backup wcghostname.tar.gz was created and transfered to the FTP Server! MD5 of file is: 760ec68b1203eebc7b1579f7965d2a67 ```
 
 
+To install copy download and move the config.ini and wcg_auto_snapshot.py files to a directory of your choice. Then create a cron job with the following to run every Sunday night at midnight:
+```00 00 * * * python /your/directory/wcg_auto_snapshot.py```
 
 
 This script is provided without any warranty or support. Any issues feel free to post them here on Github so I can look at them.
