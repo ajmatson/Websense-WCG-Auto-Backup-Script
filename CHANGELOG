@@ -7,3 +7,6 @@ April 25, 2016
   
 April 26, 2016
    0.93 - Rewrote the script using Python 2.x, will leave the bash script for a bit until fully stable
+
+May 05, 2016
+   0.93a - Fixed a few bugs with removal of tar.gz using python script
