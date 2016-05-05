@@ -2,7 +2,7 @@
 __author__ = "Alan Matson"
 __copyright__ = "Copyright 2016, EchoTEK Solutions"
 __license__ = "GPLv3"
-__version__ = "0.93"
+__version__ = "0.93a"
 __maintainer__ = "Alan Matson"
 __email__ = "alan (at) echotek (dot) us"
 __status__ = "Development"
@@ -18,7 +18,7 @@ config.read("config.ini")
 server = config.get('Configuration', 'ftpserverip')
 uname = config.get('Configuration', 'username')
 passw = config.get('Configuration', 'password')
-remotd = config.get('Configuration', 'remotedir')
+remoted = config.get('Configuration', 'remotedir')
 locald = config.get('Configuration', 'localdir')
 currdate = datetime.now().strftime('%Y%m%d')
 hostname = socket.gethostname()
@@ -43,16 +43,17 @@ tar.close()
 filen = fhostname + ".tar.gz"
 ftp = FTP(server)
 ftp.login(uname,passw)
+ftp.cwd(remoted)
 with open('/tmp/%s' % filen, 'r') as filename:
     ftpresponse = ftp.storbinary('STOR %s' % filen, filename)
 ftp.quit()
-
+os.remove(tarname)
 
 #Check the FTP response
-print ftpresponse
+#print ftpresponse
 if "226 Successfully transferred" not in ftpresponse:
     with open(logfile, 'a') as logf:
-        logf.write("%s - Backup $s failed, please investigate!" % (logdate, filen))
+        logf.write("%s - Backup %s failed, please investigate!" % (logdate, filen))
 else:
     md5filen = "/tmp/" + filen
     md5sum = hashlib.md5(open(md5filen, 'rb').read()).hexdigest()
