@@ -10,3 +10,4 @@ April 26, 2016
 
 May 05, 2016
    0.93a - Fixed a few bugs with removal of tar.gz using python script
+   0.94 - Added support for SCP witout having to install additional python modules
