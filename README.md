@@ -16,11 +16,11 @@ To install copy download and move the config.ini and wcg_auto_snapshot.py files 
 ####SCP Setup:
 To use SCP you need to setup your keys ahead of time. To generate a new set of private keys on the Content Gateway machine type:
 
-```ssh-keygen -t rsa```
+```root@proxy# ssh-keygen -t rsa```
 
 Then you need to export the key to your SCP server:
 
-```ssh-copy-id user@server```
+```root@proxy# ssh-copy-id user@server```
 
 Once this is done you need to enable SCP in the config.ini by changing the value to "True"
 
