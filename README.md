@@ -14,7 +14,7 @@ To install copy download and move the config.ini and wcg_auto_snapshot.py files 
 ```00 00 * * * python /your/directory/wcg_auto_snapshot.py```
 
 ####SCP Setup:
-To use SCP you need to setup your keys ahead of time. To generate a new set of private keys on the Content Gateway machine type:
+To use SCP you need to setup your keys ahead of time. To generate a new set of private keys on the Content Gateway machine the following command and follow the prompts, do not set a password or the script will fail:
 
 ```root@proxy# ssh-keygen -t rsa```
 
