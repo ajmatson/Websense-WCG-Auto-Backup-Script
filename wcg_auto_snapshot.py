@@ -2,7 +2,7 @@
 __author__ = "Alan Matson"
 __copyright__ = "Copyright 2016, EchoTEK Solutions"
 __license__ = "GPLv3"
-__version__ = "0.93a"
+__version__ = "0.94"
 __maintainer__ = "Alan Matson"
 __email__ = "alan (at) echotek (dot) us"
 __status__ = "Development"
