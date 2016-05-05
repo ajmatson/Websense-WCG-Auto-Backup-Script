@@ -13,6 +13,12 @@ To install copy download and move the config.ini and wcg_auto_snapshot.py files 
 
 ```00 00 * * * python /your/directory/wcg_auto_snapshot.py```
 
+####SCP Setup:
+To use SCP you need to setup your keys ahead of time. To generate a new set of private keys on the Content Gateway machine type:
+```ssh-keygen -t rsa```
+Then you need to export the key to your SCP server:
+```ssh-copy-id user@server```
+Once this is done you need to enable SCP in the config.ini by changing the value to "True"
 
 
 ###Planned Changes:
@@ -20,7 +26,7 @@ To install copy download and move the config.ini and wcg_auto_snapshot.py files 
 - (COMPLETED) Move the configuration values to a .ini file for easy setup.
 - (COMPLETED) Migrate from bash to Python for the script.
 - Create an installer.
-- Add SCP support with SSH keys for better security.
+- (Completed) Add SCP support with SSH keys for better security.
 
 
 *Notes: This script was tested working and developed on a Websense/Forcepoint V1000G3 running version 8.0.1
