@@ -2,15 +2,24 @@
 __author__ = "Alan Matson"
 __copyright__ = "Copyright 2016, EchoTEK Solutions"
 __license__ = "GPLv3"
-__version__ = "0.94"
+__version__ = "0.93a"
 __maintainer__ = "Alan Matson"
 __email__ = "alan (at) echotek (dot) us"
 __status__ = "Development"
+
+###########################################################################################################
+## Development Note: SCP is not currently functionioning. Please refrain from using until future update. ##
+##                                                                                                       ##
+## Also due to bug in Forcepoint command line backup several additional files manually added.            ##
+###########################################################################################################
+
 
 import socket, os, subprocess, tarfile, hashlib, time
 from ftplib import FTP
 from datetime import datetime
 from ConfigParser import SafeConfigParser
+from distutils.dir_util import copy_tree
+from shutil import copyfile
 
 # Import variables from config.ini and set a few others:
 global server
@@ -27,7 +36,7 @@ global scpstat
 config = SafeConfigParser()
 config.read("config.ini")
 scpstat = config.get('Configuration', 'scpenable')
-server = config.get('Configuration', 'ftpserverip')
+server = config.get('Configuration', 'serverip')
 uname = config.get('Configuration', 'username')
 passw = config.get('Configuration', 'password')
 remoted = config.get('Configuration', 'remotedir')
@@ -45,6 +54,14 @@ def snapshot():
     #print "Running snapshot!"
     shellcmd = "/opt/WCG/bin/content_line -N %s" % fhostname
     subprocess.Popen(shellcmd, shell=True)
+    dirname = "/opt/WCG/config/snapshots/" + fhostname
+    time.sleep(10)
+    os.mkdir(dirname + '/ddscomm', 0777)
+    os.mkdir(dirname + '/ant_server', 0777)
+    copy_tree('/opt/WCG/config/ddscomm/', dirname + '/ddscomm')
+    copy_tree('/opt/WCG/config/ant_server/', dirname + '/ant_server')
+    copyfile('/opt/WCG/bin/websense.ini', dirname + '/websense.ini')
+    copyfile('/opt/WCG/config/broker.config', dirname + '/broker.config')
 
 
 def tarfiles():
@@ -71,12 +88,12 @@ def ftpfiles():
     #Check the FTP response
     if "226 Successfully transferred" not in ftpresponse:
         with open(logfile, 'a') as logf:
-            logf.write("%s - Backup %s failed, please investigate!" % (logdate, filen))
+            logf.write("%s - Backup %s failed, please investigate! \n" % (logdate, filen))
     else:
         md5filen = "/tmp/" + filen
         md5sum = hashlib.md5(open(md5filen, 'rb').read()).hexdigest()
         with open(logfile, 'a') as logf:
-            logf.write("%s - Backup %s was created and transfered to the FTP Server! MD5 of file is: %s" % (logdate, filen, md5sum))
+            logf.write("%s - Backup %s was created and transfered to the FTP Server! MD5 of file is: %s \n" % (logdate, filen, md5sum))
     os.remove(tarname)
 
 
@@ -84,19 +101,30 @@ def scpfiles():
     filen = fhostname + ".tar.gz"
     localfile = '/tmp/' + filen
     remotefile = '/tmp/' + filen
-    os.system('scp "%s" "%s@%s:%s"' % (localfile, uname, server, remotefile))
-
+    command = 'scp "%s" "%s@%s:%s" % (localfile, uname, server, remotefile)'
+    scpresponse = subprocess.Popen(command, shell=True)
+    print scpresponse
+    if "is done" not in scpresponse:
+        with open(logfile, 'a') as logf:
+            logf.write("%s - Backup %s failed, please investigate! \n" % (logdate, filen))
+    else:
+        md5filen = "/tmp/" + filen
+        md5sum = hashlib.md5(open(md5filen, 'rb').read()).hexdigest()
+        with open(logfile, 'a') as logf:
+            logf.write("%s - Backup %s was created and transfered to the FTP Server! MD5 of file is: %s \n" % (
+            logdate, filen, md5sum))
+    os.remove(tarname)
 
 def main():
     snapshot()
     time.sleep(2)
     tarfiles()
     time.sleep(2)
-    print scpstat
-    if scpstat is "True" or "true":
-        scpfiles()
-    else:
-        ftpfiles()
+    #if scpstat is "True" or "true":
+    #    scpfiles()
+    #else:
+    #    ftpfiles()
+    ftpfiles()
 
 if __name__ == "__main__":
     main()
