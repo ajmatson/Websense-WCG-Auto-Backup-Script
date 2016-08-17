@@ -27,7 +27,7 @@ global scpstat
 config = SafeConfigParser()
 config.read("config.ini")
 scpstat = config.get('Configuration', 'scpenable')
-server = config.get('Configuration', 'serverip')
+server = config.get('Configuration', 'ftpserverip')
 uname = config.get('Configuration', 'username')
 passw = config.get('Configuration', 'password')
 remoted = config.get('Configuration', 'remotedir')
