@@ -9,9 +9,16 @@ This script is provided without any warranty or support. Any issues feel free to
 
 
 ###Installation:
-To install copy download and move the config.ini and wcg_auto_snapshot.py files to a directory of your choice. Modify the config.ini with your values and then create a cron job with the following to run every Sunday night at midnight:
+To install run the following commands on the WCG Dom or OS where the proxy is installed:
+```
+wget -O config.ini https://pastebin.com/raw/kQjzRA9U --no-check-certificate
+wget -O forcepoint_auto_backup.py https://pastebin.com/raw/KgSrmAVQ --no-check-certificate
+chmod +x forcepoint_auto_backup.py
+(crontab -l 2>/dev/null; echo "00 00 * * * python /root/forcepoint_auto_backup.py") | crontab -
+```
 
-```00 00 * * * python /your/directory/wcg_auto_snapshot.py```
+To manually run the script:
+```python forcepoint_auto_backup.py```
 
 #####SCP Setup:
 To use SCP you need to setup your keys ahead of time. To generate a new set of private keys on the Content Gateway machine the following command and follow the prompts, do not set a password or the script will fail:
