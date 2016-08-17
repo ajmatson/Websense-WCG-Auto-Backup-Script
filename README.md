@@ -18,7 +18,7 @@ chmod +x forcepoint_auto_backup.py
 ```
 
 To manually run the script:
-```python forcepoint_auto_backup.py```
+```# python forcepoint_auto_backup.py```
 
 #####SCP Setup:
 To use SCP you need to setup your keys ahead of time. To generate a new set of private keys on the Content Gateway machine the following command and follow the prompts, do not set a password or the script will fail:
