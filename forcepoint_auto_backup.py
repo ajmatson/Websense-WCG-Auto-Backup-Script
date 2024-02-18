@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 __author__ = "Alan Matson"
-__copyright__ = "Copyright 2016, EchoTEK Solutions"
+__copyright__ = "Copyright 2016, Alan Matson"
 __license__ = "GPLv3"
 __version__ = "0.93a"
 __maintainer__ = "Alan Matson"
-__email__ = "alan (at) echotek (dot) us"
+__email__ = "alan (at) gmail (dot) com"
 __status__ = "Development"
 
 ###########################################################################################################
